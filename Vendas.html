@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- ícone de imagem na guia do navegador -->
+    <link rel="icon" href="../IMG/..." />
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/grud.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <title>Sistema de Vendas</title>
+</head>
+<body>
+    <div class="corpo">
+        <!-- Navbar -->
+        <nav>
+            <div class="menu-sid">
+                <i class="bi bi-list sidebar-toggle"></i>
+            </div><!-- menu-sid -->
+            <div class="div-logo-name">
+                <span class="logo_name">Vendas</span>
+            </div><!--logo-name-->
+            
+            <div class="menu-items">
+                <ul class="nav-links">
+                    <li><a href="Dashboard.html">
+                            <i class="bi bi-house"></i>
+                            <span class="link-name">Dashboard</span>
+                        </a></li>                        
+                    <li><a href="Estoque.html">
+                            <i class="bi bi-box-seam"></i>
+                            <span class="link-name">Estoque</span>
+                        </a></li>
+                    <li><a href="Funcionarios.html">
+                            <i class="bi bi-person-vcard"></i>
+                                <span class="link-name">Funcionários</span>
+                            </a></li>
+                    <li><a href="Vendas.html">
+                            <i class="bi bi-clipboard-data"></i>
+                            <span class="link-name">Vendas</span>
+                        </a></li>
+                    <li><a href="Pedidos.html">
+                        <i class="bi bi-receipt"></i>
+                            <span class="link-name">Pedidos</span>
+                        </a></li>
+                </ul><!--nav-links-->
+            </div><!--menu-items-->
+        </nav> 
+        <section class="dashboard">
+            <div class="top">
+                <i class="bi bi-list sidebar-toggle2"></i>
+                <div class="logo-name">
+                    <h1 class="seduc-logo">Gerenciamento de Vendas</h1>
+                </div><!--logo-name-->
+                
+                <div class="actionimg">
+                    <div class="profile" onclick="menuToggle();">
+                        <img src="../IMG/mamacof1.png" alt="Profile Image">
+                    </div>
+                    <div class="menu">
+                        <h3>
+                          Lucas Galindo
+                        </h3>
+                        <ul>
+                            <li>
+                                <span class="material-icons icons-size"><i class="bi bi-person"></i></span>
+                                <a href="#">Perfil</a>
+                            </li>
+                            <li>
+                                <span class="material-icons icons-size"><i class="bi bi-question-circle"></i></span>
+                                <a href="#">Ajuda</a>
+                            </li>
+                            <li>
+                                <span class="material-icons icons-size"><i class="bi bi-gear"></i></span>
+                                <a href="#">Configurações</a>
+                            </li>
+                            <li>
+                                <span class="material-icons icons-size"><i class="bi bi-box-arrow-right"></i></span>
+                                <a href="index.html">Saída</a>
+                            </li>
+                        </ul>
+                    </div><!--menu-->
+                </div><!--actionimg-->
+              </div><!--top-->
+
+  <div class="corpo-da-pag">
+    <div class="scroll">
+      <div class="activity">
+        <div class="overview">
+          <div class="title">
+            <i class="bi bi-currency-dollar"></i> 
+            <span class="text">Vendas</span>
+          </div><!--title-->                     
+            <div class="seducServer" style="white-space: nowrap;">
+                <li class="breadcrumb-item">
+                    <a style="text-decoration: none !important; color: black; font-size: 12px; margin-left: 2%;" href="Dashboard.html">Gerenciamento de Vendas</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a style="text-decoration: none !important; color: rgb(99, 99, 99); font-size: 12px; margin-left: 2%;" href="Vendas.html">&nbsp; > Vendas</a>
+                </li>
+            </div>
+            <div id="lupa-grid">
+                <button type="button" class="button blue mobile" id="cadastrarVenda">Nova Venda</button>
+            </div>    
+            <br>
+                <table id="tableVendas" class="records">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Quantidade</th>
+                            <th>Valor Unitário</th>
+                            <th>Valor Total</th>
+                            <th>Data da Venda</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- DADOS INSERIDOS APARECERÃO AQUI -->
+                    </tbody>
+                </table>
+                <!-- MODAL APAGAR -->
+                <div class="modal" id="modal2">
+                    <div class="modal-content">
+                        <header class="modal-header">
+                            <h2>Excluir Venda</h2>
+                            <span class="modal-close" id="modalClose2">&#10006</span>
+                        </header>
+                        <div id="avisoDelete">
+                            <!-- Aviso de delete -->
+                        </div>
+                        <footer class="model-footer">
+                            <button id="apagar" class="button red">Apagar</button>
+                            <button id="cancelar2" class="button blue">Cancelar</button>
+                        </footer>
+                    </div>
+                </div>
+
+                <!-- MODAL CRIAR E EDITAR --> 
+                <div class="modal" id="modal">
+                    <div class="modal-content">
+                        <header class="modal-header">
+                            <h2>Nova Venda</h2>
+                            <span class="modal-close" id="modalClose">&#10006</span>
+                        </header>
+                        <form id="form" class="modal-form">
+                            <input type="number" id="codigo" data-index="new" class="modal-field" placeholder="Código da Venda" required>
+                            <input type="text" id="produto" class="modal-field" placeholder="Nome do Produto" required>
+                            <input type="text" id="categoria" class="modal-field" placeholder="Categoria" required>
+                            <input type="number" id="quantidade" class="modal-field" placeholder="Quantidade" required>
+                            <input type="text" id="valorUnitario" class="modal-field" placeholder="Valor Unitário" required>
+                            <input type="text" id="valorTotal" class="modal-field" placeholder="Valor Total" required>
+                            <input type="date" id="dataVenda" class="modal-field" placeholder="Data da Venda" required>
+                        </form>
+                        <footer class="modal-footer">
+                            <button id="salvar" class="button green">Salvar</button>
+                            <button id="cancelar" class="button blue">Cancelar</button>
+                        </footer>
+                    </div>
+                </div>         
+          </div><!--activity-->
+        </div><!--scroll-->
+      </div><!--corpo-da-pag-->
+    </section><!--dashboard-->
+  </div> <!--corpo-->
+  <script src="../JS/main.js"></script>
+  <script src="../JS/Vendas.js"></script>
+</body>
+</html>
