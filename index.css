@@ -1,0 +1,121 @@
+
+/* A regra afetará todos os elementos HTML da Página */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* A regra @font-face do CSS3 serve para importar fontes (tipografia) externas para nossa página, ele afetará todos os elementos HTML da Página */
+@font-face {
+    font-family: 'Montebello';
+    src: url(Montebello-Regular.ttf)format("truetype"), url(Montebello-Light.otf)format("opentype");
+    font-weight: normal;
+    font-style: normal; 
+}
+
+/* A regra para o corpo da Página */
+body{
+    width: 100%;
+    height: 100%;
+    background: #008000;
+    overflow: hidden;
+}
+
+/* A regra para a div container no HTML*/
+.container{
+    max-width: 440px;
+    padding: 0 20px;
+    margin: 170px auto;
+}
+
+
+/*A regra para a div wrapper no HTML.
+* Estas regras afetarão o formulario de login.
+*/
+/* Essa regra cria uma caixa que marcará a tela de login*/
+.wrapper{
+    width: 400px;
+    height: 340px;
+    background: whitesmoke;
+    border-radius: 7px;
+    box-shadow: 0 6px 4px -4px rgba(0,0,0,0.25);
+}
+/* Essa regra cria uma faixa na parte superior da caixa, aparecendo um titulo na tela de login*/
+.wrapper .title{
+    line-height: 80px;
+    background: gray ;
+    padding-left: 20px;
+    border-radius: 7px 7px 0 0;
+    font-size: 25px;
+    color: rgb(243, 241, 241);
+    font-weight: 600;
+    font-family: 'Montebello', Times, serif;
+}
+/* Essa regra direciona o formulario dentro da tela de login*/
+.wrapper form{
+    padding: 30px 20px 25px 20px;
+}
+
+/* Essa regra posiciona elementos do formulario dentro da tela de login*/
+.wrapper form .row{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Essa regra trabalha as bordas e utiliza fontes importadas*/
+.wrapper form .row input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    font-family: 'Montebello', Times, serif;
+}
+
+/* Essa regra trabalha a organização de elementos, efeitos de sombra, 
+bordas entre outros*/
+.wrapper form .row .i{
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    font-size: 20px;
+    background: gray;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,0.25);
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wrapper form .pass{
+    margin: -8px 0 20px 0;
+}
+
+.wrapper form .pass p{
+    color: gray;
+    font-size: 17px;
+    text-decoration: none;
+    font-family: 'Montebello', Times, serif;
+}
+
+.wrapper form .pass p:hover{
+    text-decoration: underline;
+}
+
+
+/* Essa regra trabalha as configurações do botão de login*/
+.wrapper form .button input{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 0;
+    background: gray;
+    border: 1px solid lightgray;
+    cursor: pointer;
+}
+
